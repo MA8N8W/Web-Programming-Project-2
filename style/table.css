@@ -1,0 +1,44 @@
+table .datafield {
+    min-width: 100px;
+    width: calc(50% - 75px);
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+table .buttonfield {
+    min-width: 150px;
+    width: 150px;
+    text-align: center;
+}
+
+table button {
+    width: calc(50% - 3px);
+    background: var(--colour-light);
+    border: solid 1px var(--colour-primary-shade);
+    border-radius: calc(var(--border-radius) - 2px);
+    color: var(--colour-primary-shade);
+    padding: 3px 0 3px 0;
+    margin: 0;
+}
+
+table button.deletebutton {
+    background: var(--colour-primary-shade);
+    color: var(--colour-light);
+}
+
+table button:not(.deletebutton):hover {
+    border: solid 1px var(--colour-primary);
+    color: var(--colour-primary);
+}
+
+table button.deletebutton:hover {
+    background: var(--colour-primary);
+    color: var(--colour-light);
+}
+
+table .buttonfield div {
+    width: 6px;
+    height: 1em;
+    display: inline-block;
+}
