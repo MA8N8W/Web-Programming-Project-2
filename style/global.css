@@ -12,6 +12,7 @@
 }
 
 body {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     background: var(--colour-light);
@@ -57,6 +58,12 @@ article {
     font-size: 1.25rem;
 }
 
+abbr {
+    color: var(--colour-primary);
+    text-decoration: none;
+    font-style: italic;
+}
+
 figure {
     display: table;
     float: right;
@@ -82,11 +89,13 @@ figure figcaption {
     padding: 8px 0;
 }
 
-.accountprompt {
-    max-width: 50ch;
+.form {
+    max-width: 70ch;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    padding: 0;
+    /*! padding: 10px; */
 }
 
 form {
@@ -105,12 +114,21 @@ form div fieldset {
     padding: 0;
 }
 
-form div.login  fieldset {
-    margin: 0 0 25px 0;
+form .singleline {
+    padding: 0;
+    margin: 0;
 }
 
-form div.register fieldset {
-    margin: 0 0 10px 0;
+form div.singleline fieldset {
+    width: calc(50% - 5px);
+    display: inline;
+    margin: 0;
+}
+
+form div.singleline fieldset.spacer {
+    width: 10px;
+    display: inline;
+    border: none;
 }
 
 form div fieldset legend {
@@ -339,11 +357,11 @@ form div button:hover {
         color: var(--colour-light);
         white-space: nowrap;
     }
-    .navigation li:not(.menuButton):not(.active) a:hover {
+    .navigation li:not(.menuButton) a:not(.active):hover {
         transform: translateY(100%);
     }
 
-    .navigation li.active {
+    .navigation li:has(a.active)  {
         transform: translateY(100%);
     }
 }

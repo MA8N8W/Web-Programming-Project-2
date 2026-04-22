@@ -7,4 +7,4 @@ function toggleMenu() {
     }
 }
 
-export default toggleMenu()
+export default toggleMenu
