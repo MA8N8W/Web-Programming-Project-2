@@ -95,7 +95,6 @@ figure figcaption {
     margin-right: auto;
     text-align: center;
     padding: 0;
-    /*! padding: 10px; */
 }
 
 form {
@@ -116,6 +115,12 @@ form div fieldset {
 
 form .singleline {
     padding: 0;
+    margin: 0;
+}
+
+form .singleline div {
+    width: calc(50% - 5px);
+    display: inline-block;
     margin: 0;
 }
 
@@ -143,7 +148,7 @@ form div fieldset:has(input:focus) legend {
     color: var(--colour-primary-shade);
 }
 
-form div fieldset input[type="text"], input[type="email"], input[type="password"] {
+form div fieldset input[type="text"], input[type="number"], input[type="email"], input[type="password"] {
     width: calc(100% - 16px);
     padding: 0 6px 5px 6px;
     margin: 0 8px 8px 8px;
@@ -292,21 +297,11 @@ form div button:hover {
         display: block;
     }
 
-    /*.navigation a {
-        padding: 14px 16px;
-        display: none;
-    }*/
-
     .navigation li.menuButton a.icon {
         float: right;
         display: block;
         padding: 14px 16px;
     }
-    /*.navigation.responsive a {
-        float: none;
-        display: block;
-        text-align: left;
-    }*/
 
     .navigation.responsive li:not(.menuButton) a {
         float: none;
