@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.chess-app {
+  display: flex;
+  width: min(calc(100vw - 3rem), 65vh);
+  height: min(calc(100vw - 3rem), 65vh);
+  max-width: 100%;
+  max-height: 100%;
+  align-content: center;
+  justify-content: center;
+  padding: 1px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+
+/* Board Colour Redefinitions & Size Management */
+._boardWrapper_eqvj3_1 {
+  width: 100%;
+  background: var(--colour-light);
+  color: #616165;
+}
+
+._colorBlack_eqvj3_74 {
+  color: var(--colour-dark);
+}
+
+._colorWhite_eqvj3_70 {
+  color: var(--colour-light);
+}
+
+._boxBlack_rwpfn_6 {
+  background-color: hsl(338, 30%, 50%);
+}
+
+._boxWhite_rwpfn_10 {
+  background-color: hsl(338, 30%, 90%);
+}
+
+._cellCircle_rwpfn_22 {
+  background-color: hsl(338, 85%, 60%);
+}

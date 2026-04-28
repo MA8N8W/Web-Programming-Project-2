@@ -46,7 +46,7 @@ const PageReact = () => {
     return (
         <main id="main-content" className="wrapper" tabIndex="-1">
             <div>
-                <h2>React <abbr title="Create, Read, Update, Delete">CRUD</abbr> Application</h2>
+                <h3>React <abbr title="Create, Read, Update, Delete">CRUD</abbr> Application</h3>
                 <div>
                     <div>
                         <fieldset style={styleField}>

@@ -5,7 +5,7 @@ import PageHome from './pages/pagehome.jsx'
 import PageJavaScript from "./pages/pagejavascript.jsx";
 import PageReact from "./pages/pagereact.jsx";
 import PageAxios from "./pages/pageaxios.jsx";
-//import PageSPA from "./pages/pagespa.jsx";
+import PageSPA from "./pages/pagespa.jsx";
 
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
@@ -22,7 +22,7 @@ function PageAssembler() {
                     <Route path="/project2/oojs" element={<wipPageOOJS />} />
                     <Route path="/project2/javascript" element={<PageJavaScript />} />
                     <Route path="/project2/react" element={<PageReact />} />
-                    <Route path="/project2/spa" element={<wipPageSPA />} />
+                    <Route path="/project2/spa" element={<PageSPA />} />
                     <Route path="*" element={<Navigate to={"/project2/home"} />} />
                 </Routes>
                 <Footer/>
