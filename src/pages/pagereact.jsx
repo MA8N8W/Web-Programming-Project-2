@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import UserTable from "/src/data/react_table.jsx";
 import AddUserForm from "/src/forms/react_addentry_form.jsx";
 import EditUserForm from "/src/forms/react_editentry_form.jsx";
-import "/style/table.css"
+import "/public/style/table.css"
 
-const App = () => {
+const PageReact = () => {
     const usersData = [
         { id: 1, name: "Example 1", username: "user1" },
         { id: 2, name: "Example 2", username: "user2" },
@@ -74,4 +74,4 @@ const App = () => {
         </main>
     );
 };
-export default App;
+export default PageReact;

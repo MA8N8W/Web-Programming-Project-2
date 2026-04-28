@@ -1,35 +1,23 @@
 import React from "react";
 
-const styleTableHead = {
-    width: "100%",
-    border: "solid 1px var(--colour-dark)",
-    borderRadius: "var(--border-radius) var(--border-radius) 0 0"
-}
-
-const styleTableBody = {
-    width: "100%",
-    border: "solid 1px var(--colour-dark)",
-    borderRadius: "0 0 var(--border-radius) var(--border-radius)"
-}
-
 const UserTable = props => (
     <>
-        <table style={styleTableHead}>
+        <table className="tablePageReact">
             <thead>
-                <tr>
-                    <th className="datafield">Name</th>
-                    <th className="datafield">Username</th>
-                    <th className="buttonfield">Actions</th>
-                </tr>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th className="buttonfield">Actions</th>
+            </tr>
             </thead>
-        </table>
-        <table style={styleTableBody}>
             <tbody>
             {props.users.length > 0 ? (
                 props.users.map(user => (
                     <tr key={user.id}>
-                        <td className="datafield">{user.name}</td>
-                        <td className="datafield">{user.username}</td>
+                        <td>{user.id}</td>
+                        <td>{user.name}</td>
+                        <td>{user.username}</td>
                         <td className="buttonfield">
                             <button onClick={() => {props.editRow(user);}}>Edit</button>
                             <div/>
