@@ -12,6 +12,15 @@ const EditUserForm = props => {
         setUser(props.currentUser);
     }, [props]);
 
+    const [width, setWidth] = React.useState(window.innerWidth);
+    const breakPoint = 600;
+
+    useEffect(() => {
+        const handleWindowResize = () => setWidth(window.innerWidth);
+        window.addEventListener("resize", handleWindowResize);
+        return () => window.removeEventListener("resize", handleWindowResize);
+    }, []);
+
     return (
         <form
             onSubmit={event => {
@@ -20,17 +29,30 @@ const EditUserForm = props => {
             }}
         >
             <div className="form">
-                <div className="singleline">
-                    <fieldset>
-                        <legend>Name</legend>
-                        <input type="text" name="name" value={user.name} onChange={handleInputChange}/>
-                    </fieldset>
-                    <fieldset className="spacer"/>
-                    <fieldset>
-                        <legend>Username</legend>
-                        <input type="text" name="username" value={user.username} onChange={handleInputChange}/>
-                    </fieldset>
-                </div>
+                {width > breakPoint? (
+                    <div className="singleline">
+                        <fieldset>
+                            <legend>Name</legend>
+                            <input type="text" name="name" value={user.name} onChange={handleInputChange}/>
+                        </fieldset>
+                        <fieldset className="spacer"/>
+                        <fieldset>
+                            <legend>Username</legend>
+                            <input type="text" name="username" value={user.username} onChange={handleInputChange}/>
+                        </fieldset>
+                    </div>
+                ) : (
+                    <>
+                        <fieldset>
+                            <legend>Name</legend>
+                            <input type="text" name="name" value={user.name} onChange={handleInputChange}/>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Username</legend>
+                            <input type="text" name="username" value={user.username} onChange={handleInputChange}/>
+                        </fieldset>
+                    </>
+                )}
                 <br/>
                 <button style={{width: "calc(70% - 10px)", float: "left"}}>Update User</button>
                 <button style={{width: "30%", float: "right"}} onClick={() => props.setEditing(false)}>Cancel</button>

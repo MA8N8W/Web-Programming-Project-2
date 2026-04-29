@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import UserTable from "/src/data/react_table.jsx";
 import AddUserForm from "/src/forms/react_addentry_form.jsx";
 import EditUserForm from "/src/forms/react_editentry_form.jsx";
-import "/public/style/table.css"
+import "/public/style/table.css";
 
 const PageReact = () => {
     const usersData = [

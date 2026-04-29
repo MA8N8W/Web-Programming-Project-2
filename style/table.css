@@ -1,12 +1,53 @@
-table .datafield {
-    min-width: 100px;
-    width: calc(50% - 75px);
-    text-align: left;
+table {
+    display: block;
+    background: var(--colour-dark);
+    border-collapse: collapse;
+    border: solid 1px var(--colour-dark);
+    border-radius: calc(var(--border-radius) + 2px);
+    padding: 1px;
+}
+
+thead, tbody {
+    display: block;
+    border: solid 1px var(--colour-dark);
+    background: var(--colour-light);
+}
+
+thead {
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    border-bottom: none;
+}
+
+tbody {
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    padding: 2px;
+}
+
+thead tr, tbody tr {
+    display:block;
+    width:100%
+}
+
+tbody tr:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+    background: #fce1eb;
+}
+
+thead tr th, tbody tr td {
+    display: inline-block;
+    overflow: hidden;
+    text-wrap: wrap;
+}
+
+thead tr th:not(:first-child, .buttonfield), tbody tr td:not(:first-child, .buttonfield) {
     padding: 0;
     margin: 0;
 }
 
-table .buttonfield {
+thead tr th.buttonfield, tbody tr td.buttonfield {
     min-width: 150px;
     width: 150px;
     text-align: center;
@@ -41,4 +82,32 @@ table .buttonfield div {
     width: 6px;
     height: 1em;
     display: inline-block;
+}
+
+
+/*This could not be managed inline due to React's idiotic simplification of calc(calc()) type css rules.*/
+table.tablePageReact thead tr th:not(:first-child, .buttonfield), table.tablePageReact tbody tr td:not(:first-child, .buttonfield) {
+    width: calc(calc(100% - 175px) / 2);
+}
+
+table.tablePageReact thead tr th:first-child, table.tablePageReact tbody tr td:first-child {
+    min-width: 25px;
+    width: 25px;
+    text-align: right;
+    color: var(--colour-primary-shade);
+}
+
+table.tablePageAxios thead tr th:not(:first-child, .buttonfield), table.tablePageAxios tbody tr td:not(:first-child, .buttonfield) {
+    width:calc(calc(100% - 175px) / 5);
+}
+
+table.tablePageAxios thead tr th:first-child, table.tablePageAxios tbody tr td:first-child {
+    min-width: 25px;
+    width: 25px;
+    text-align: right;
+    color: var(--colour-primary-shade);
+}
+
+table.tablePageJavaScript thead tr th:not(.buttonfield), table.tablePageJavaScript tbody tr td:not(.buttonfield) {
+    width: calc(calc(100% - 150px) / 4);
 }

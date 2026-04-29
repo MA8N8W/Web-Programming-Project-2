@@ -27,7 +27,7 @@ const UserTable = props => (
                 ))
             ) : (
                 <tr>
-                    <td colSpan={3}>No users</td>
+                    <td colSpan={4} style={{width: "100%", textAlign: "center"}}>No users</td>
                 </tr>
             )}
             </tbody>

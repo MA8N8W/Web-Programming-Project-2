@@ -10,7 +10,7 @@ function Navigation () {
                         <NavLink to="/project2/home" data-hover="Home" styleName={({ isActive }) => "active" + (isActive ? " activated" : "")}>Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/project2/javascript' data-hover="Javascript" styleName={({ isActive }) => "active" + (isActive ? " activated" : "")}>JavaScript</NavLink>
+                        <NavLink to='/project2/javascript' data-hover="JavaScript" styleName={({ isActive }) => "active" + (isActive ? " activated" : "")}>JavaScript</NavLink>
                     </li>
                     <li>
                         <NavLink to='/project2/react' data-hover="React" styleName={({ isActive }) => "active" + (isActive ? " activated" : "")}>React</NavLink>
