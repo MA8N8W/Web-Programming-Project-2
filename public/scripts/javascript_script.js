@@ -1,26 +1,32 @@
 var selectedIndex = null;
-var array1 = new Array();
-array1.push({"fullName":"John Smith","email":"data1@gmail.com","salary":"2000","city":"London"});
-// OR: array1[0]= {"fullName":"John Smith","email":"data1@gmail.com","salary":"2000","city":"London"};
-array1.push({"fullName":"Tom Brown","email":"data2@gmail.com","salary":"2500","city":"Paris"});
+var array_channels = new Array();
+array_channels.push({"frequency":"87.6","performance":"0.5","name":"Gong Rádió","transmitter_location":"Csongrád","address":""});
+array_channels.push({"frequency":"89","performance":"1","name":"MR2-Petőfi Rádió ","transmitter_location":"Debrecen","address":"Pallag"});
+array_channels.push({"frequency":"91.1","performance":"0.2","name":"SUNSHINE Rádió Pilis ","transmitter_location":"Szentendre","address":"Pismány-hegy"});
+array_channels.push({"frequency":"97.1","performance":"0.5","name":"Yo! Rádió ","transmitter_location":"Várpalota","address":""});
+array_channels.push({"frequency":"100","performance":"0.94","name":"Rádió Aktív FM 100,0 MHz ","transmitter_location":"Sátoraljaújhely","address":"Magas-hegy"});
+array_channels.push({"frequency":"106.8","performance":"7.4","name":"MR3-Bartók Rádió ","transmitter_location":"Győr","address":"Szabadhegy"});
+
 
 function printArray(){
-    var table = document.getElementById("employeeList").getElementsByTagName('tbody')[0];
+    var table = document.getElementById("channelList").getElementsByTagName('tbody')[0];
     table.innerHTML="";
     var i, newRow;
-    for (i = 0; i < array1.length; i++) {
+    for (i = 0; i < array_channels.length; i++) {
         newRow = table.insertRow(table.length);
         var cell1 = newRow.insertCell(0);
-        cell1.innerHTML = array1[i].fullName;
+        cell1.innerHTML = array_channels[i].frequency;
         var cell2 = newRow.insertCell(1);
-        cell2.innerHTML = array1[i].email;
+        cell2.innerHTML = array_channels[i].performance;
         var cell3 = newRow.insertCell(2);
-        cell3.innerHTML = array1[i].salary;
+        cell3.innerHTML = array_channels[i].name;
         var cell4 = newRow.insertCell(3);
-        cell4.innerHTML = array1[i].city;
+        cell4.innerHTML = array_channels[i].transmitter_location;
         var cell5 = newRow.insertCell(4);
-        cell5.className = "buttonfield";
-        cell5.innerHTML = '<button onClick="onEdit('+i+')">Edit</button>' + '<div></div>' + '<button class="deletebutton" onClick="onDelete('+i+')">Delete</button>';
+        cell5.innerHTML = array_channels[i].address;
+        var cell6 = newRow.insertCell(5);
+        cell6.className = "buttonfield";
+        cell6.innerHTML = '<button onClick="onEdit('+i+')">Edit</button>' + '<div></div>' + '<button class="deletebutton" onClick="onDelete('+i+')">Delete</button>';
     }
 }
 
@@ -35,58 +41,65 @@ function onFormSubmit() {
         resetForm();
     }
 }
+
+function onFormReset() {
+
+}
 function readFormData() {
     var formData = {};
-    formData["fullName"] = document.getElementById("fullName").value;
-    formData["email"] = document.getElementById("email").value;
-    formData["salary"] = document.getElementById("salary").value;
-    formData["city"] = document.getElementById("city").value;
+    formData["frequency"] = document.getElementById("frequency").value;
+    formData["performance"] = document.getElementById("performance").value;
+    formData["name"] = document.getElementById("name").value;
+    formData["transmitter_location"] = document.getElementById("transmitter_location").value;
+    formData["address"] = document.getElementById("address").value;
     return formData;
 }
 
 function insertNewRecord(data) {
-    array1.push({"fullName":data.fullName,"email":data.email,"salary":data.salary,"city":data.city});
-    // OR: array1[array1.length]= {"fullName":data.fullName,"email":data.email,"salary":data.salary,"city":data.city};
+    array_channels.push({"frequency":data.frequency,"performance":data.performance,"name":data.name,"transmitter_location":data.transmitter_location,"address":data.address});
     printArray();
 }
 
 function resetForm() {
-    document.getElementById("fullName").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("salary").value = "";
-    document.getElementById("city").value = "";
+    document.getElementById("frequency").value = "";
+    document.getElementById("performance").value = "";
+    document.getElementById("name").value = "";
+    document.getElementById("transmitter_location").value = "";
+    document.getElementById("address").value = "";
     selectedIndex=null;
 }
 function onEdit(index) {
-    document.getElementById("fullName").value = array1[index].fullName;
-    document.getElementById("email").value = array1[index].email;
-    document.getElementById("salary").value = array1[index].salary;
-    document.getElementById("city").value = array1[index].city;
+    document.getElementById("frequency").value = array_channels[index].frequency;
+    document.getElementById("performance").value = array_channels[index].performance;
+    document.getElementById("name").value = array_channels[index].name;
+    document.getElementById("transmitter_location").value = array_channels[index].transmitter_location;
+    document.getElementById("address").value = array_channels[index].address;
     selectedIndex=index;
 }
 function updateRecord(formData) {
-    array1[selectedIndex].fullName=formData.fullName;
-    array1[selectedIndex].email=formData.email;
-    array1[selectedIndex].salary=formData.salary;
-    array1[selectedIndex].city=formData.city;
+    array_channels[selectedIndex].frequency=formData.frequency;
+    array_channels[selectedIndex].performance=formData.performance;
+    array_channels[selectedIndex].name=formData.name;
+    array_channels[selectedIndex].transmitter_location=formData.transmitter_location;
+    array_channels[selectedIndex].address=formData.address;
     printArray();
 }
 function onDelete(index) {
-    if (confirm('Are you sure to delete this record ?')) {
-        array1.splice(index, 1); // Deleting the entry with the specified index
+    if (confirm('Are you sure you want to delete this record?')) {
+        array_channels.splice(index, 1);
         resetForm();
         printArray();
     }
 }
 function validate() {
     var isValid = true;
-    if (document.getElementById("fullName").value == "") {
+    if (document.getElementById("frequency").value == "" || document.getElementById("performance").value == "" || document.getElementById("name").value == "" || document.getElementById("transmitter_location").value == "" ) {
         isValid = false;
-        //document.getElementById("fullNameValidationError").classList.remove("hide");
+        //document.getElementById("frequencyValidationError").classList.remove("hide");
     } else {
         isValid = true;
-        /*if (!document.getElementById("fullNameValidationError").classList.contains("hide"))
-            document.getElementById("fullNameValidationError").classList.add("hide");*/
+        /*if (!document.getElementById("frequencyValidationError").classList.contains("hide"))
+            document.getElementById("frequencyValidationError").classList.add("hide");*/
     }
     return isValid;
 }

@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "/public/style/table.css";
-import "/public/scripts/javascript_script.js";
 
 function PageJavaScript() {
 
@@ -39,53 +37,67 @@ function PageJavaScript() {
     return (
         <main id="main-content" className="wrapper" tabIndex="-1">
             <fieldset style={styleField}>
-                <legend style={styleLegend}>Add Entry</legend>
-                <form onSubmit={Submit}>
+                <legend style={styleLegend}><strong>JavaScript <abbr title="Create, Read, Update, Delete">CRUD</abbr> Application</strong></legend>
+                <form onSubmit={Submit} on>
                     <div className="form">
-                        {width > breakPoint ? (
-                            <>
+                        {width > breakPoint? (
+                            <div className="form">
                                 <div className="singleline">
-                                    <fieldset>
-                                        <legend>Full Name*</legend>
-                                        <input type="text" name="fullName" id="fullName" required/>
-                                    </fieldset>
+                                    <div className="singleline">
+                                        <fieldset>
+                                            <legend>Frequency*</legend>
+                                            <input type="number" step="0.1" min="80" max="108" id="frequency" required/>
+                                        </fieldset>
+                                        <fieldset className="spacer"/>
+                                        <fieldset>
+                                            <legend>Performance*</legend>
+                                            <input type="number" step="0.0001" min="0" id="performance" required/>
+                                        </fieldset>
+                                    </div>
                                     <fieldset className="spacer"/>
                                     <fieldset>
-                                        <legend>Email Address</legend>
-                                        <input type="email" name="email" id="email"/>
+                                        <legend>Name*</legend>
+                                        <input type="text" id="name" required/>
                                     </fieldset>
                                 </div>
                                 <div className="singleline">
+                                    <fieldset style={{width:"calc(40% - 5px)"}}>
+                                        <legend>Transmitter Location*</legend>
+                                        <input type="text" id="transmitter_location" required/>
+                                    </fieldset>
+                                    <fieldset className="spacer"/>
+                                    <fieldset style={{width:"calc(60% - 5px)"}}>
+                                        <legend>Address</legend>
+                                        <input type="text" id="address"/>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        ) : (
+                            <div className="form">
+                                <div className="singleline">
                                     <fieldset>
-                                        <legend>Salary</legend>
-                                        <input type="number" name="salary" id="salary"/>
+                                        <legend>Frequency*</legend>
+                                        <input type="number" step="0.1" min="80" max="108" id="frequency" required/>
                                     </fieldset>
                                     <fieldset className="spacer"/>
                                     <fieldset>
-                                        <legend>City</legend>
-                                        <input type="text" name="city" id="city"/>
+                                        <legend>Performance*</legend>
+                                        <input type="number" step="0.0001" min="0" id="performance" required/>
                                     </fieldset>
                                 </div>
-                            </>
-                        ):(
-                            <>
                                 <fieldset>
-                                    <legend>Full Name*</legend>
-                                    <input type="text" name="fullName" id="fullName" required/>
+                                    <legend>Name*</legend>
+                                    <input type="text" id="name" required/>
                                 </fieldset>
                                 <fieldset>
-                                    <legend>Email Address</legend>
-                                    <input type="email" name="email" id="email"/>
+                                    <legend>Transmitter Location*</legend>
+                                    <input type="text" id="transmitter_location" required/>
                                 </fieldset>
                                 <fieldset>
-                                    <legend>Salary</legend>
-                                    <input type="text" name="salary" id="salary"/>
+                                    <legend>Address</legend>
+                                    <input type="text" id="address"/>
                                 </fieldset>
-                                <fieldset>
-                                    <legend>City</legend>
-                                    <input type="text" name="city" id="city"/>
-                                </fieldset>
-                            </>
+                            </div>
                         )}
                         <br/>
                         <button type="submit">Submit</button>
@@ -93,14 +105,15 @@ function PageJavaScript() {
                 </form>
             </fieldset>
             <br />
-            <div className="overflow-x-auto">
-                <table id="employeeList" className="tablePageJavaScript">
+            <div>
+                <table id="channelList" className="tablePageJavaScript">
                     <thead>
                         <tr>
-                            <th>Full Name</th>
-                            <th>Email</th>
-                            <th>Salary</th>
-                            <th>City</th>
+                            <th>Frequency</th>
+                            <th>Performance</th>
+                            <th>Name</th>
+                            <th>Transmitter Location</th>
+                            <th>Address</th>
                             <th className="buttonfield">Actions</th>
                         </tr>
                     </thead>
