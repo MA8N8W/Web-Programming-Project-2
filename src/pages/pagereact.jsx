@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import UserTable from "/src/data/react_table.jsx";
 import AddUserForm from "/src/forms/react_addentry_form.jsx";
 import EditUserForm from "/src/forms/react_editentry_form.jsx";
-import "/public/style/table.css";
 
 const PageReact = () => {
     const usersData = [
@@ -46,11 +45,10 @@ const PageReact = () => {
     return (
         <main id="main-content" className="wrapper" tabIndex="-1">
             <div>
-                <h3>React <abbr title="Create, Read, Update, Delete">CRUD</abbr> Application</h3>
                 <div>
                     <div>
                         <fieldset style={styleField}>
-                            <legend style={styleLegend}>{editing ? "Edit user" : "Add user"}</legend>
+                            <legend style={styleLegend}><strong>React <abbr title="Create, Read, Update, Delete">CRUD</abbr> Application</strong></legend>
                             {!editing ? (
                                 <AddUserForm
                                     addUser={addUser}
@@ -66,7 +64,7 @@ const PageReact = () => {
                         </fieldset>
                     </div>
                     <div>
-                        <h2>View users</h2>
+                        <br/>
                         <UserTable users={users} editRow={editRow} deleteUser={deleteUser} />
                     </div>
                 </div>

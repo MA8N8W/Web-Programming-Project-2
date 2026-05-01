@@ -109,5 +109,5 @@ table.tablePageAxios thead tr th:first-child, table.tablePageAxios tbody tr td:f
 }
 
 table.tablePageJavaScript thead tr th:not(.buttonfield), table.tablePageJavaScript tbody tr td:not(.buttonfield) {
-    width: calc(calc(100% - 150px) / 4);
+    width: calc(calc(100% - 150px) / 5);
 }
