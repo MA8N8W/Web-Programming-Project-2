@@ -1,0 +1,404 @@
+/* Modernized Tetris styles */
+.app-center-shell {
+  --bg: #0d0f17;
+  --panel: #161b29;
+  --panel-alt: #1f2638;
+  --accent: #646cff;
+  --accent-glow: #8891ff;
+  --danger: #ff3355;
+  --success: #3ddc97;
+  --text: #f5f7fa;
+  --muted: #7a8699;
+  --cell-size: 28px;
+  --radius: 10px;
+  --transition: 150ms ease;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.app-center-shell body {
+  background: linear-gradient(145deg, #0d0f17, #1b2233);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.app-center-shell {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.app-center-shell .tetris-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 48px;
+  width: 100%;
+  flex-wrap: wrap;
+  color: var(--text);
+  max-width: 1200px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Scaler wrapper (added dynamically) */
+.tetris-scale-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.tetris-scale-inner {
+  transform-origin: top center;
+}
+
+.app-center-shell .panel {
+  background: var(--panel);
+  border: 1px solid #222b3b;
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  position: relative;
+  box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.55), 0 0 0 1px #222b3b inset;
+  backdrop-filter: blur(8px);
+}
+
+.app-center-shell .panel.main {
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-center-shell .title {
+  margin: 0 0 4px;
+  font-size: 28px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--accent), var(--accent-glow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.app-center-shell .stats {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 8px;
+}
+.app-center-shell .stats div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  background: var(--panel-alt);
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+.app-center-shell .stats label {
+  color: var(--muted);
+}
+.app-center-shell .stats span {
+  font-weight: 600;
+}
+
+.app-center-shell .stage-grid {
+  display: grid;
+  grid-template-rows: repeat(20, var(--cell-size));
+  grid-template-columns: repeat(10, var(--cell-size));
+  gap: 2px;
+  background: #070a11;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px -4px #000b, 0 0 0 1px #202a3b;
+  position: relative;
+}
+
+.app-center-shell .cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  background: #101726;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px #1d2638;
+  transition: background var(--transition), transform var(--transition);
+}
+.app-center-shell .cell.filled {
+  filter: brightness(1.05);
+}
+.app-center-shell .cell.I {
+  background: #00e5ff;
+  box-shadow: 0 0 8px -2px #00e5ffaa inset, 0 0 6px #00e5ff55;
+}
+.app-center-shell .cell.J {
+  background: #2d5bff;
+  box-shadow: 0 0 8px -2px #2d5bffaa inset, 0 0 6px #2d5bff55;
+}
+.app-center-shell .cell.L {
+  background: #ff9e2c;
+  box-shadow: 0 0 8px -2px #ff9e2caa inset, 0 0 6px #ff9e2c55;
+}
+.app-center-shell .cell.O {
+  background: #ffd500;
+  box-shadow: 0 0 8px -2px #ffd500aa inset, 0 0 6px #ffd50055;
+}
+.app-center-shell .cell.S {
+  background: #2dff76;
+  box-shadow: 0 0 8px -2px #2dff76aa inset, 0 0 6px #2dff7655;
+}
+.app-center-shell .cell.T {
+  background: #a243ff;
+  box-shadow: 0 0 8px -2px #a243ffaa inset, 0 0 6px #a243ff55;
+}
+.app-center-shell .cell.Z {
+  background: #ff3355;
+  box-shadow: 0 0 8px -2px #ff3355aa inset, 0 0 6px #ff335555;
+}
+.app-center-shell .cell.ghost {
+  background: #1a2536;
+  box-shadow: inset 0 0 0 1px #304156;
+  opacity: 0.35;
+}
+
+.app-center-shell .overlay.status {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  font-weight: 700;
+  background: #0d1320dd;
+  border-radius: 8px;
+  letter-spacing: 2px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.app-center-shell .mini-section {
+  display: flex;
+  gap: 18px;
+  margin: 20px 0 14px;
+  justify-content: center;
+}
+.app-center-shell .mini-wrapper {
+  text-align: center;
+}
+.app-center-shell .mini-title {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+.app-center-shell .mini-grid {
+  margin-top: 6px;
+  display: grid;
+  grid-template-columns: repeat(4, var(--cell-size));
+  grid-template-rows: repeat(4, var(--cell-size));
+  gap: 2px;
+  background: #070a11;
+  padding: 6px;
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px #202a3b;
+}
+
+.app-center-shell .buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.app-center-shell .buttons button {
+  width: 100%;
+}
+
+.app-center-shell button {
+  background: linear-gradient(145deg, #232c41, #1a2233);
+  color: var(--text);
+  border: 1px solid #2c374d;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px -1px #0009, 0 0 0 1px #2c374d inset;
+  transition: var(--transition);
+}
+.app-center-shell button:hover {
+  border-color: var(--accent);
+  color: #fff;
+  box-shadow: 0 3px 10px -2px #000c, 0 0 0 1px var(--accent) inset;
+}
+.app-center-shell button:active {
+  transform: translateY(2px);
+}
+.app-center-shell button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.app-center-shell .help {
+  margin-top: 18px;
+  background: var(--panel-alt);
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.45;
+  box-shadow: inset 0 0 0 1px #2b3446;
+}
+.app-center-shell .help ul {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  columns: 2;
+}
+.app-center-shell .help li {
+  margin: 2px 0;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .app-center-shell .tetris-layout {
+    gap: 32px;
+  }
+}
+/* Medium breakpoint: slightly reduce cell size */
+@media (max-width: 760px) {
+  .app-center-shell {
+    --cell-size: 24px;
+  }
+  .app-center-shell .tetris-layout {
+    gap: 36px;
+  }
+}
+/* Narrow phones: stack panels vertically and shrink stage */
+@media (max-width: 560px) {
+  .app-center-shell {
+    --cell-size: 22px;
+  }
+  .app-center-shell body {
+    align-items: flex-start;
+  }
+  .app-center-shell {
+    padding-top: 12px;
+  }
+  .app-center-shell .tetris-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+  .app-center-shell .panel {
+    width: 100%;
+    max-width: 440px;
+  }
+  .app-center-shell .mini-section {
+    justify-content: center;
+  }
+  .app-center-shell .buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .app-center-shell .buttons button {
+    flex: 1 1 48%;
+  }
+  .app-center-shell .help ul {
+    columns: 1;
+  }
+}
+/* Extra small devices: further shrink and ensure fit */
+@media (max-width: 420px) {
+  .app-center-shell {
+    --cell-size: 19px;
+  }
+  .app-center-shell .panel {
+    padding: 16px 16px;
+  }
+  .app-center-shell .panel.main {
+    padding: 12px 14px;
+  }
+  .app-center-shell .stage-grid {
+    padding: 8px;
+  }
+  .app-center-shell .title {
+    font-size: 24px;
+    letter-spacing: 3px;
+  }
+  .app-center-shell .stats div {
+    font-size: 12px;
+  }
+}
+/* Ultra small fallback */
+@media (max-width: 350px) {
+  .app-center-shell {
+    --cell-size: 17px;
+  }
+}
+
+/* Dynamic scale-down if still overflowing horizontally */
+@media (max-width: 330px) {
+  .app-center-shell .tetris-layout {
+    transform: scale(0.95);
+  }
+}
+@media (max-width: 310px) {
+  .app-center-shell .tetris-layout {
+    transform: scale(0.9);
+  }
+}
+@media (max-width: 290px) {
+  .app-center-shell .tetris-layout {
+    transform: scale(0.82);
+  }
+}
+@media (max-width: 270px) {
+  .app-center-shell .tetris-layout {
+    transform: scale(0.75);
+  }
+}
+@media (max-width: 250px) {
+  .app-center-shell .tetris-layout {
+    transform: scale(0.68);
+  }
+}
+
+/* Landscape phones with very limited vertical space */
+@media (max-height: 560px) and (orientation: landscape) {
+  .app-center-shell {
+    --cell-size: 20px;
+  }
+  .app-center-shell .tetris-layout {
+    gap: 32px;
+  }
+  .app-center-shell .help {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .app-center-shell {
+    --cell-size: 24px;
+  }
+  .app-center-shell .mini-section {
+    flex-wrap: wrap;
+  }
+  .app-center-shell .buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .app-center-shell .buttons button {
+    flex: 1 1 45%;
+  }
+}

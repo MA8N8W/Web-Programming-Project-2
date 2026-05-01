@@ -1,5 +1,4 @@
 function openTab(evt, elementid) {
-    // Declare all variables
     var i, tabcontent, tablinks;
 
     // Get all elements with class="tabcontent" and hide them
@@ -16,7 +15,5 @@ function openTab(evt, elementid) {
 
     // Show the current tab, and add an "active" class to the button that opened the tab
     document.getElementById(elementid).style.display = "block";
-    evt.currentTarget.className += " active";
+    evt.target.className += " active";
 }
-
-export default openTab
