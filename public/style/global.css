@@ -44,7 +44,8 @@ h2 {
 }
 
 p {
-    max-width: 70ch;
+    //*max-width: 70ch;*/
+    width: 100%;
     margin-top: 0.5rem;
     margin-bottom: 1rem;
 }
@@ -374,16 +375,16 @@ form div button:hover {
 }
 
 .tab button {
-    display: block;
-    width: 50%;
+    display: inline-block;
+    width: calc(calc(100% / 2) - 6px);
     border: 1px solid var(--colour-dark);
     border-radius: var(--border-radius);
     color: var(--colour-dark);
     background: var(--colour-light);
-    cursor: pointer;
-    padding: 14px 16px;
+    padding: 14px 15px;
     margin: 5px 3px;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .tab button:hover {

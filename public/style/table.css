@@ -43,7 +43,7 @@ thead tr th, tbody tr td {
 }
 
 thead tr th:not(:first-child, .buttonfield), tbody tr td:not(:first-child, .buttonfield) {
-    padding: 0;
+    padding: 0 5px;
     margin: 0;
 }
 
@@ -84,26 +84,33 @@ table .buttonfield div {
     display: inline-block;
 }
 
+table td.textalign_left {
+    text-align: left;
+}
+
+table td.textalign_right {
+    text-align: right;
+}
 
 /*This could not be managed inline due to React's idiotic simplification of calc(calc()) type css rules.*/
 table.tablePageReact thead tr th:not(:first-child, .buttonfield), table.tablePageReact tbody tr td:not(:first-child, .buttonfield) {
-    width: calc(calc(100% - 175px) / 2);
+    width: calc(calc(calc(100% - 150px) - 5ch) / 2);
 }
 
 table.tablePageReact thead tr th:first-child, table.tablePageReact tbody tr td:first-child {
-    min-width: 25px;
-    width: 25px;
+    min-width: 5ch;
+    width: 5ch;
     text-align: right;
     color: var(--colour-primary-shade);
 }
 
 table.tablePageAxios thead tr th:not(:first-child, .buttonfield), table.tablePageAxios tbody tr td:not(:first-child, .buttonfield) {
-    width:calc(calc(100% - 175px) / 5);
+    width:calc(calc(calc(100% - 150px) - 5ch) / 5);
 }
 
 table.tablePageAxios thead tr th:first-child, table.tablePageAxios tbody tr td:first-child {
-    min-width: 25px;
-    width: 25px;
+    min-width: 5ch;
+    width: 5ch;
     text-align: right;
     color: var(--colour-primary-shade);
 }

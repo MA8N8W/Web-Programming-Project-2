@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 function PageJavaScript() {
 
     const [width, setWidth] = useState(window.innerWidth);
-    const breakPoint = 600;
+    const breakPoint = 650;
 
     useEffect(() => {
         const handleWindowResize = () => setWidth(window.innerWidth);
@@ -36,6 +36,10 @@ function PageJavaScript() {
 
     return (
         <main id="main-content" className="wrapper" tabIndex="-1">
+                <article>
+                    <p>This page features a small JavaScript-based CRUD application. Some data is pushed into an internal array which is then subsequently used to generate the table you see below when the page first loads. Since JavaScript runs on the clientside a (force)refresh of the page will cause all modifications to be lost.</p>
+                    <p>The input elements use some HTML5 features to facilitate a minimal amount of validation, the script only checks whether the required fields are filled in, but nothing else beyond that.</p>
+                </article>
             <fieldset style={styleField}>
                 <legend style={styleLegend}><strong>JavaScript <abbr title="Create, Read, Update, Delete">CRUD</abbr> Application</strong></legend>
                 <form onSubmit={Submit} on>

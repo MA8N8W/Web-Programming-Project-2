@@ -30,7 +30,6 @@ function printArray(){
     }
 }
 
-
 function onFormSubmit() {
     if (validate()) {
         var formData = readFormData();
@@ -42,9 +41,6 @@ function onFormSubmit() {
     }
 }
 
-function onFormReset() {
-
-}
 function readFormData() {
     var formData = {};
     formData["frequency"] = document.getElementById("frequency").value;
@@ -95,11 +91,8 @@ function validate() {
     var isValid = true;
     if (document.getElementById("frequency").value == "" || document.getElementById("performance").value == "" || document.getElementById("name").value == "" || document.getElementById("transmitter_location").value == "" ) {
         isValid = false;
-        //document.getElementById("frequencyValidationError").classList.remove("hide");
     } else {
         isValid = true;
-        /*if (!document.getElementById("frequencyValidationError").classList.contains("hide"))
-            document.getElementById("frequencyValidationError").classList.add("hide");*/
     }
     return isValid;
 }

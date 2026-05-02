@@ -24,10 +24,10 @@ function PageAxios() {
     const submit = async () => {
         var res;
         if (editId) {
-            res = await axios.put("api.php", { id: editId, frequency, performance, name, transmitter_location, address });
+            res = await axios.put("api.php", { id:editId, frequency:frequency, performance:performance, name:name, transmitter_location:transmitter_location, address:address });
             setEditId(null);
         } else {
-            res = await axios.post("api.php", { frequency, performance, name, transmitter_location, address });
+            res = await axios.post("api.php", { frequency:frequency, performance:performance, name:name, transmitter_location:transmitter_location, address:address });
         }
         setMessage(res.data.status);
         setFrequency("");
@@ -65,7 +65,7 @@ function PageAxios() {
     };
 
     const [width, setWidth] = React.useState(window.innerWidth);
-    const breakPoint = 600;
+    const breakPoint = 650;
 
     useEffect(() => {
         const handleWindowResize = () => setWidth(window.innerWidth);
@@ -87,11 +87,14 @@ function PageAxios() {
 
     return (
         <main id="main-content" className="wrapper" tabIndex="-1">
+            <article>
+                <p>This page attempts to use Axios to send requests to the backend, which returns data from a SQL database.</p>
+                <p>Currently Axios misbehaves for no clear reason, while records can be received, they can not be added or edited. They can however be deleted<abbr title="(Which means there is a functional connection to the backend, as well as read/write access.)">(?)</abbr></p>
+            </article>
             <div>
                 <p>{message}</p>
-                <h3>React + PHP CRUD</h3>
                 <fieldset style={styleField}>
-                    <legend style={styleLegend}>{editId ? "Edit" : "Add"}</legend>
+                    <legend style={styleLegend}><strong>React, Axios & PHP <abbr title="Create, Read, Update, Delete">CRUD</abbr></strong></legend>
                     {width > breakPoint? (
                         <form>
                             <div className="form">
@@ -127,69 +130,69 @@ function PageAxios() {
                                 <br/>
                                 {editId ? (
                                     <div style={{width: "100%", padding: 0, margin: 0}}>
-                                        <button style={{width: "calc(70% - 10px)"}} onClick={submit}>Update</button>
+                                        <button style={{width: "calc(70% - 10px)"}} onClick={submit}>Update Record</button>
                                         <div style={{display: "inline-block", width: "10px", padding: 0, margin: 0}}/>
                                         <button style={{width: "30%"}} onClick={reset}>Cancel</button>
                                     </div>
                                 ) : (
                                     <div style={{width: "100%", padding: 0, margin: 0}}>
-                                        <button onClick={submit}>Add</button>
+                                        <button onClick={submit}>Add Record</button>
                                     </div>
                                 )}
                             </div>
                         </form>
                     ) : (
                         <form>
-                                <div className="form">
-                                    <div className="singleline">
-                                        <fieldset>
-                                            <legend>Frequency*</legend>
-                                            <input type="number" step="0.1" min="80" max="108" value={frequency} onChange={(e) => setFrequency(e.target.value)} />
-                                        </fieldset>
-                                        <fieldset className="spacer"/>
-                                        <fieldset>
-                                            <legend>Performance*</legend>
-                                            <input type="number" step="0.0001" min="0" value={performance} onChange={(e) => setPerformance(e.target.value)}/>
-                                        </fieldset>
-                                    </div>
+                            <div className="form">
+                                <div className="singleline">
                                     <fieldset>
-                                        <legend>Name*</legend>
-                                        <input type="text" value={name} onChange={(e) => setName(e.target.value)}/>
+                                        <legend>Frequency*</legend>
+                                        <input type="number" step="0.1" min="80" max="108" value={frequency} onChange={(e) => setFrequency(e.target.value)} />
                                     </fieldset>
+                                    <fieldset className="spacer"/>
                                     <fieldset>
-                                        <legend>Transmitter Location*</legend>
-                                        <input type="text" value={transmitter_location} onChange={(e) => setTransmitterLocation(e.target.value)}/>
+                                        <legend>Performance*</legend>
+                                        <input type="number" step="0.0001" min="0" value={performance} onChange={(e) => setPerformance(e.target.value)}/>
                                     </fieldset>
-                                    <fieldset>
-                                        <legend>Address</legend>
-                                        <input type="text" value={address} onChange={(e) => setAddress(e.target.value)}/>
-                                    </fieldset>
-                                    <br/>
-                                    {editId ? (
-                                        <>
-                                            <button style={{width: "calc(70% - 10px)", float: "left"}} onClick={submit}>Update</button>
-                                            <button style={{width: "30%", float: "right"}} onClick={reset}>Cancel</button>
-                                        </>
-                                    ) : (
-                                        <button onClick={submit}>Add</button>
-                                    )}
                                 </div>
-                            </form>
+                                <fieldset>
+                                    <legend>Name*</legend>
+                                    <input type="text" value={name} onChange={(e) => setName(e.target.value)}/>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Transmitter Location*</legend>
+                                    <input type="text" value={transmitter_location} onChange={(e) => setTransmitterLocation(e.target.value)}/>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Address</legend>
+                                    <input type="text" value={address} onChange={(e) => setAddress(e.target.value)}/>
+                                </fieldset>
+                                <br/>
+                                {editId ? (
+                                    <>
+                                        <button style={{width: "calc(70% - 10px)", float: "left"}} onClick={submit}>Update Record</button>
+                                        <button style={{width: "30%", float: "right"}} onClick={reset}>Cancel</button>
+                                    </>
+                                ) : (
+                                    <button onClick={submit}>Add Record</button>
+                                )}
+                            </div>
+                        </form>
                     )}
                 </fieldset>
                 <br/>
                 <div>
                     <table className="tablePageAxios">
                         <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Frequency</th>
-                            <th>Performance</th>
-                            <th>Name</th>
-                            <th>Transmitter Location</th>
-                            <th>Address</th>
-                            <th className="buttonfield">Actions</th>
-                        </tr>
+                            <tr>
+                                <th>ID</th>
+                                <th>Frequency</th>
+                                <th>Performance</th>
+                                <th>Name</th>
+                                <th>Transmitter Location</th>
+                                <th>Address</th>
+                                <th className="buttonfield">Actions</th>
+                            </tr>
                         </thead>
                         <tbody>
                         {channels.map((channel) => (

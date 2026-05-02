@@ -4,8 +4,10 @@ import Footer from './pages/common/footer.jsx'
 import PageHome from './pages/pagehome.jsx'
 import PageJavaScript from "./pages/pagejavascript.jsx";
 import PageReact from "./pages/pagereact.jsx";
+import PageFetch from "./pages/pagefetch.jsx";
 import PageAxios from "./pages/pageaxios.jsx";
 import PageSPA from "./pages/pagespa.jsx";
+import PageOOJS from "./pages/pageoojs.jsx";
 
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
@@ -17,12 +19,12 @@ function PageAssembler() {
                 <Navigation/>
                 <Routes>
                     <Route path="/project2/home" element={<PageHome />} />
-                    <Route path="/project2/fetch" element={<wipPageFetch />} />
-                    <Route path="/project2/axios" element={<PageAxios />} />
-                    <Route path="/project2/oojs" element={<wipPageOOJS />} />
                     <Route path="/project2/javascript" element={<PageJavaScript />} />
                     <Route path="/project2/react" element={<PageReact />} />
+                    <Route path="/project2/fetch" element={<PageFetch />} />
+                    <Route path="/project2/axios" element={<PageAxios />} />
                     <Route path="/project2/spa" element={<PageSPA />} />
+                    <Route path="/project2/oojs" element={<PageOOJS />} />
                     <Route path="*" element={<Navigate to={"/project2/home"} />} />
                 </Routes>
                 <Footer/>
