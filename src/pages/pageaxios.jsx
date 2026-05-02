@@ -89,7 +89,7 @@ function PageAxios() {
         <main id="main-content" className="wrapper" tabIndex="-1">
             <article>
                 <p>This page attempts to use Axios to send requests to the backend, which returns data from a SQL database.</p>
-                <p>Currently Axios misbehaves for no clear reason, while records can be received, they can not be added or edited. They can however be deleted<abbr title="(Which means there is a functional connection to the backend, as well as read/write access.)">(?)</abbr></p>
+                <p><strike>Currently Axios misbehaves for no clear reason, while records can be received, they can not be added or edited. They can however be deleted</strike> Apparently, this is a Firefox specific issue, adding  the attribute <code>type="button"</code> is sufficient to fix this... WHY‽</p>
             </article>
             <div>
                 <p>{message}</p>
@@ -130,13 +130,13 @@ function PageAxios() {
                                 <br/>
                                 {editId ? (
                                     <div style={{width: "100%", padding: 0, margin: 0}}>
-                                        <button style={{width: "calc(70% - 10px)"}} onClick={submit}>Update Record</button>
+                                        <button type="button" style={{width: "calc(70% - 10px)"}} onClick={submit}>Update Record</button>
                                         <div style={{display: "inline-block", width: "10px", padding: 0, margin: 0}}/>
-                                        <button style={{width: "30%"}} onClick={reset}>Cancel</button>
+                                        <button type="button" style={{width: "30%"}} onClick={reset}>Cancel</button>
                                     </div>
                                 ) : (
                                     <div style={{width: "100%", padding: 0, margin: 0}}>
-                                        <button onClick={submit}>Add Record</button>
+                                        <button type="button" onClick={submit}>Add Record</button>
                                     </div>
                                 )}
                             </div>
@@ -170,11 +170,11 @@ function PageAxios() {
                                 <br/>
                                 {editId ? (
                                     <>
-                                        <button style={{width: "calc(70% - 10px)", float: "left"}} onClick={submit}>Update Record</button>
-                                        <button style={{width: "30%", float: "right"}} onClick={reset}>Cancel</button>
+                                        <button type="button" style={{width: "calc(70% - 10px)", float: "left"}} onClick={submit}>Update Record</button>
+                                        <button type="button" style={{width: "30%", float: "right"}} onClick={reset}>Cancel</button>
                                     </>
                                 ) : (
-                                    <button onClick={submit}>Add Record</button>
+                                    <button type="button" onClick={submit}>Add Record</button>
                                 )}
                             </div>
                         </form>

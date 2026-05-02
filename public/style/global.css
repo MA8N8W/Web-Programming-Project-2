@@ -50,6 +50,14 @@ p {
     margin-bottom: 1rem;
 }
 
+code {
+    font-size: 1.2rem;
+    background: #eee;
+    color: var(--colour-primary);
+    border-radius: 2px;
+    padding: 1px
+}
+
 /*p, li, dl {
     max-width: 70ch;
 }*/
